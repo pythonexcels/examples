@@ -1,7 +1,7 @@
 Example Files from PythonExcels
 ===============================
 
-This repository contains example Python scripts described in the blog [http://www.pythonexcels.com](PythonExcels). 
+This repository contains example Python scripts described in the blog [http://www.pythonexcels.com/](http://www.pythonexcels.com).
 
 driving.py
 ----------
