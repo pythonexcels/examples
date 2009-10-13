@@ -43,6 +43,11 @@ format_cells.py
 
 This script creates two columns of data, then formats the font type and font size used in the worksheet.  Five different fonts and sizes are used, the numbers are formatted using a monetary format.  The spreadsheet is written to format_cells.xlsx.
 
+make15x15.py
+------------
+
+make15x15.py loads the file My Documents\MultiplicationTable.xlsx, expands the multiplication table from 10x10 to 15x15, changes the column width and saves the updated worksheet to My Documents\NewMultiplicationTable.xlsx
+
 open_an_existing_workbook.py
 ----------------------------
 
