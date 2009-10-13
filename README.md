@@ -48,6 +48,11 @@ make15x15.py
 
 make15x15.py loads the file My Documents\MultiplicationTable.xlsx, expands the multiplication table from 10x10 to 15x15, changes the column width and saves the updated worksheet to My Documents\NewMultiplicationTable.xlsx
 
+MultiplicationTable.xlsx
+------------------------
+
+Simple 10x10 multiplication source file for make15x15.py
+
 open_an_existing_workbook.py
 ----------------------------
 
