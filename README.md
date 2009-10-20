@@ -28,6 +28,11 @@ column_widths.py
 
 This script creates two columns of data, one narrow and one wide, then formats the column width with the ColumnWidth property.  You can also use the Columns.AutoFit() function to autofit all columns in the spreadsheet.  The spreadsheet is written to column_widths.xlsx.
 
+conditionalformatting.py
+------------------------
+
+This script builds two data tables from scratch, applies conditional formatting to the tables and saves the result to ConditionalFormatting.xlsx.  This script only works with Excel 2007 and later versions.
+
 copy_worksheet_to_worksheet.py
 ------------------------------
 
