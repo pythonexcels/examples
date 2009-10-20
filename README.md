@@ -31,7 +31,7 @@ This script creates two columns of data, one narrow and one wide, then formats t
 conditionalformatting.py
 ------------------------
 
-This script builds two data tables from scratch, applies conditional formatting to the tables and saves the result to ConditionalFormatting.xlsx.  This script only works with Excel 2007 and later versions.
+This script builds two data tables from scratch, applies conditional formatting to the tables and saves the result to ConditionalFormatting.xlsx.  This script only works with Excel 2007 and later versions.  A complete description of this script can be found at  [http://www.pythonexcels.com/2009/10/mapping-excel-vb-macros-to-python-revisited](http://www.pythonexcels.com/2009/10/mapping-excel-vb-macros-to-python-revisited).  
 
 copy_worksheet_to_worksheet.py
 ------------------------------
