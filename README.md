@@ -43,6 +43,11 @@ driving.py
 
 This is a simple introduction to opening Excel, creating a workbook, creating a worksheet and adding some data.  This script is best run by entering the text line-by-line into Python. A complete description of this script can be found at  [http://www.pythonexcels.com/2009/09/basic-excel-driving-with-python/](http://www.pythonexcels.com/2009/09/basic-excel-driving-with-python).  
 
+erpdata.py
+---------------
+
+This script loads the spreadsheet file ABCDCatering.xls, prepares it for pivot table insertion and saves the file.  The output spreadsheet is written to the file newABCDCatering.xls.  A complete description of this script can be found at  [http://www.pythonexcels.com/...](http://www.pythonexcels.com/...).  
+
 format_cells.py
 ---------------
 
