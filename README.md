@@ -63,14 +63,15 @@ MultiplicationTable.xlsx
 
 Simple 10x10 multiplication source file for make15x15.py
 
+newABCDCatering.xls
+------------------
+
+newABCDCatering.xls is the Excel spreadsheet output from erpdata.py and contains a well formatted data table for pivot table conversion.  Use of this file is described in the post [http://www.pythonexcels.com/2009/11/introducing-pivot-tables](http://www.pythonexcels.com/2009/11/introducing-pivot-tables).  
+
 open_an_existing_workbook.py
 ----------------------------
 
 This script opens an existing workbook and displays it (note the statement excel.Visible = True).  The file workbook1.xlsx would exist in the user's "My Documents" directory.  You can also open spreadsheet files by specifying the full path to the file as shown below.  Using r' in the statement r'C:\myfiles\excel\workbook2.xlsx' automatically escapes the backslash characters and makes the file name a bit more concise. 
-
-newABCDCatering.xls
-------------------
-newABCDCatering.xls is the Excel spreadsheet output from erpdata.py and contains a well formatted data table for pivot table conversion.  Use of this file is described in the post [http://www.pythonexcels.com/2009/11/introducing-pivot-tables](http://www.pythonexcels.com/2009/11/introducing-pivot-tables).  
 
 
 ranges_and_offsets.py
