@@ -48,6 +48,11 @@ erpdata.py
 
 This script loads the spreadsheet file ABCDCatering.xls, prepares it for pivot table insertion and saves the file.  The output spreadsheet is written to the file newABCDCatering.xls.  A complete description of this script can be found at  [http://www.pythonexcels.com/2009/11/cleaning-up-corporate-erp-data](http://www.pythonexcels.com/2009/11/cleaning-up-corporate-erp-data).  
 
+erpdatapivot.py
+---------------
+
+This script extends the erpdata.py script by building 5 pivot tables based on the input spreadsheet file ABCDCatering.xls.  The output spreadsheet is written to the file newABCDCatering.xls.  A complete description of this script can be found at  [http://www.pythonexcels.com/2009/11/automating-pivot-tables-with-python/](http://www.pythonexcels.com/2009/11/automating-pivot-tables-with-python/)
+
 format_cells.py
 ---------------
 
