@@ -50,6 +50,9 @@ def addpivot(wb,sourcedata,title,filters=(),columns=(),
     return tname
 
 def runexcel():
+    """Open the spreadsheet ABCDCatering.xls, clean it up,
+    and add pivot tables
+    """
     excel = win32.gencache.EnsureDispatch('Excel.Application')
     excel.Visible = True
     try:
