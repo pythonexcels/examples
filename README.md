@@ -53,6 +53,11 @@ erpdatapivot.py
 
 This script extends the erpdata.py script by building 5 pivot tables based on the input spreadsheet file ABCDCatering.xls.  The output spreadsheet is written to the file newABCDCatering.xls.  A complete description of this script can be found at  [http://www.pythonexcels.com/2009/11/automating-pivot-tables-with-python/](http://www.pythonexcels.com/2009/11/automating-pivot-tables-with-python/)
 
+erppivotextended.py
+---------------
+
+This script, based on erpdatapivot.py, adds column insertion to derive new data columns for extended data analysis.  The script prepares the poorly formatted table data table from ABCDCatering.xls for pivot table insertion, inserts additional data columns derived from the existing data, and creates 6 pivot tables.  The output spreadsheet is written to the file newABCDCatering.xls.  A description of this script can be found at [http://www.pythonexcels.com/2009/12/extending-pivot-table-data/](http://www.pythonexcels.com/2009/12/extending-pivot-table-data/)
+
 format_cells.py
 ---------------
 
