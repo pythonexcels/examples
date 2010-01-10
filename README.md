@@ -1,7 +1,12 @@
 Example Files from PythonExcels
 ===============================
 
-This repository contains example Python scripts described in the blog [http://www.pythonexcels.com/](http://www.pythonexcels.com).
+This repository contains example Python scripts and Excel files described in the blog [http://www.pythonexcels.com/](http://www.pythonexcels.com).
+
+ABCDCatering.xls
+----------------
+
+This Excel file contains the sample spreadsheet used in many of the pivot table examples in this repository.  ABCDCatering.xls is described in post [http://www.pythonexcels.com/2009/11/cleaning-up-corporate-erp-data/](http://www.pythonexcels.com/2009/11/cleaning-up-corporate-erp-data/)
 
 add_a_workbook.py
 -----------------
