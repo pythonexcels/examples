@@ -58,6 +58,10 @@ erpdatapivot.py
 
 This script extends the erpdata.py script by building 5 pivot tables based on the input spreadsheet file ABCDCatering.xls.  The output spreadsheet is written to the file newABCDCatering.xls.  A complete description of this script can be found at  [http://www.pythonexcels.com/2009/11/automating-pivot-tables-with-python/](http://www.pythonexcels.com/2009/11/automating-pivot-tables-with-python/)
 
+erppivotdragdrop.py
+---------------
+erppivotdragdrop.py is based on erppivotextended.py and supports dragging and dropping multiple files and simple message box telling you when everything is done. It also does column insertion to derive new data columns for extended data analysis.  The script prepares the poorly formatted table data table from ABCDCatering.xls for pivot table insertion, inserts additional data columns derived from the existing data, and creates 6 pivot tables.  The output spreadsheet is written to the file ABCDCatering_new.xls, or ABCDCatering_new.xlsx, depending on the version of Excel you have on your system.  A description of this script can be found at [http://www.pythonexcels.com/2010/02/a-user-friendly-experience/](http://www.pythonexcels.com/2010/02/a-user-friendly-experience/)
+
 erppivotextended.py
 ---------------
 
