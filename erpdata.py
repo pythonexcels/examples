@@ -8,7 +8,7 @@ excel = win32.gencache.EnsureDispatch('Excel.Application')
 try:
     wb = excel.Workbooks.Open('ABCDCatering.xls')
 except:
-    print "Failed to open spreadsheet ABCDCatering.xls"
+    print ("Failed to open spreadsheet ABCDCatering.xls")
     sys.exit(1)
 ws = wb.Sheets('Sheet1')
 xldata = ws.UsedRange.Value
@@ -25,8 +25,5 @@ for i,field in enumerate(newdata[0]):
 wsnew = wb.Sheets.Add()
 wsnew.Range(wsnew.Cells(1,1),wsnew.Cells(len(newdata),len(newdata[0]))).Value = newdata
 wsnew.Columns.AutoFit()
-if int(float(excel.Version)) >= 12:
-    wb.SaveAs('newABCDCatering.xlsx',win32.constants.xlOpenXMLWorkbook)
-else:
-    wb.SaveAs('newABCDCatering.xls')
+wb.SaveAs('newABCDCatering.xlsx',win32.constants.xlOpenXMLWorkbook)
 excel.Application.Quit()
