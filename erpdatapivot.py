@@ -19,7 +19,7 @@ def addpivot(wb,sourcedata,title,filters=(),columns=(),
     newsheet.Cells(1,1).Font.Size = 16
 
     # Build the Pivot Table
-    tname = "PivotTable%d"%tablecount.next()
+    tname = "PivotTable%d"%next(tablecount)
 
     pc = wb.PivotCaches().Add(SourceType=win32c.xlDatabase,
                                  SourceData=sourcedata)
@@ -28,9 +28,9 @@ def addpivot(wb,sourcedata,title,filters=(),columns=(),
                              DefaultVersion=win32c.xlPivotTableVersion10)
     wb.Sheets(newsheet.Name).Select()
     wb.Sheets(newsheet.Name).Cells(3,1).Select()
-    for fieldlist,fieldc in ((filters,win32c.xlPageField),
-                            (columns,win32c.xlColumnField),
-                            (rows,win32c.xlRowField)):
+    for fieldlist,fieldc in ((filters ,win32c.xlPageField),
+                            (columns  ,win32c.xlColumnField),
+                            (rows     ,win32c.xlRowField)):
         for i,val in enumerate(fieldlist):
             wb.ActiveSheet.PivotTables(tname).PivotFields(val).Orientation = fieldc
             wb.ActiveSheet.PivotTables(tname).PivotFields(val).Position = i+1
@@ -55,7 +55,7 @@ def runexcel():
     try:
         wb = excel.Workbooks.Open('ABCDCatering.xls')
     except:
-        print "Failed to open spreadsheet ABCDCatering.xls"
+        print ("Failed to open spreadsheet ABCDCatering.xls")
         sys.exit(1)
     ws = wb.Sheets('Sheet1')
     xldata = ws.UsedRange.Value

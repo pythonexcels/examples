@@ -2,7 +2,7 @@
 # erppivotdragdrop.py:
 # Load raw EPR data, clean up header info,
 # insert additional data fields and build 5 pivot tables
-# Support drag and drop of multiple spreadsheets 
+# Support drag and drop of multiple spreadsheets
 #
 import win32com.client as win32
 win32c = win32.constants
@@ -10,7 +10,7 @@ import sys
 import itertools
 import re
 import traceback
-from ctypes import *
+import ctypes
 
 tablecount = itertools.count(1)
 
@@ -24,7 +24,7 @@ def addpivot(wb,sourcedata,title,filters=(),columns=(),
     newsheet.Cells(1,1).Font.Size = 16
 
     # Build the Pivot Table
-    tname = "PivotTable%d"%tablecount.next()
+    tname = "PivotTable%d"%next(tablecount)
 
     pc = wb.PivotCaches().Add(SourceType=win32c.xlDatabase,
                                  SourceData=sourcedata)
@@ -60,34 +60,34 @@ def runexcel(args):
     and add pivot tables
     """
     sawerror = False
-    print "Running erppivotdragdrop"
+    print ("Running erppivotdragdrop")
     if len(args) == 1:
-        windll.user32.MessageBoxA(None,"Error: Please drag at least one Excel file","erppivotdragdrop",0)
+        ctypes.windll.user32.MessageBoxW(None,"Error: Please drag at least one Excel file","erppivotdragdrop",0)
         sys.exit(1)
-    try: 
+    try:
         excel = win32.gencache.EnsureDispatch('Excel.Application')
         for fname in args[1:]:
-            if not re.search(r'\.(?i)xlsx?$',fname):
-                print "Error: File %s doesn't seem to be an Excel file, expecting .xls or .xlsx file" % fname
+            if not re.search(r'(?i)\.xlsx?$',fname):
+                print ("Error: File %s doesn't seem to be an Excel file, expecting .xls or .xlsx file" % fname)
                 sawerror = True
                 continue
             if not re.match('[A-Za-z]:',fname):
-                print "Error: erppivotdragdrop doesn't support command line execution"
-                print "       Please drag and drop the Excel file onto the program icon"
+                print ("Error: erppivotdragdrop doesn't support command line execution")
+                print ("       Please drag and drop the Excel file onto the program icon")
                 sawerror = True
                 continue
-            print "Processing %s" % fname
+            print ("Processing %s" % fname)
             try:
                 wb = excel.Workbooks.Open(fname)
             except:
-                print "Failed to open Excel file %s, skipping" % fname
+                print ("Failed to open Excel file %s, skipping" % fname)
                 sawerror = True
                 continue
 
             try:
                 ws = wb.Sheets('Sheet1')
             except:
-                print "Failed to open Sheet 'Sheet1' in file %s, skipping" % fname
+                print ("Failed to open Sheet 'Sheet1' in file %s, skipping" % fname)
                 wb.Close()
                 sawerror = True
                 continue
@@ -196,27 +196,27 @@ def runexcel(args):
             wb.Sheets("Unit Sales by Food Category").PivotTables(ptname).PivotFields("Fiscal Quarter").CurrentPage = "2009-Q4"
 
             outfname = re.sub('(?i)\.xlsx?','_new',fname)
-            try: 
+            try:
                 if int(float(excel.Version)) >= 12:
                     wb.SaveAs(outfname+'.xlsx',win32c.xlOpenXMLWorkbook)
-                    print "Wrote %s" % outfname+'.xlsx'
+                    print ("Wrote %s" % outfname+'.xlsx')
                 else:
                     wb.SaveAs(outfname+'.xls')
-                    print "Wrote %s" % outfname+'.xls'
+                    print ("Wrote %s" % outfname+'.xls')
             except:
-                print "Error: Problem during file save"
+                print ("Error: Problem during file save")
                 sawerror = True
             wb.Close()
         if sawerror:
-            print "Errors occurred, please check the above messages"
-            windll.user32.MessageBoxA(None,"Error: Problems occurred, please check them and try again","erppivotdragdrop",0)
+            print ("Errors occurred, please check the above messages")
+            ctypes.windll.user32.MessageBoxW(None,"Error: Problems occurred, please check them and try again","erppivotdragdrop",0)
         else:
-            print "Finished"
-            windll.user32.MessageBoxA(None,"Finished","erppivotdragdrop",0)
+            print ("erppivotdragdrop Finished")
+            ctypes.windll.user32.MessageBoxW(None,"erppivotdragdrop Finished","erppivotdragdrop",0)
     except:
         traceback.print_exc()
-        print "Errors occurred, please check the above messages"
-        windll.user32.MessageBoxA(None,"Error: Problems occurred, please check them and try again","erppivotdragdrop",0)
+        print ("Errors occurred, please check the messages above")
+        ctypes.windll.user32.MessageBoxW(None,"Error: Problems occurred, please check them and try again","erppivotdragdrop",0)
     excel.Application.Quit()
 
 if __name__ == "__main__":

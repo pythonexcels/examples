@@ -19,7 +19,7 @@ def addpivot(wb,sourcedata,title,filters=(),columns=(),
     newsheet.Cells(1,1).Font.Size = 16
 
     # Build the Pivot Table
-    tname = "PivotTable%d"%tablecount.next()
+    tname = "PivotTable%d"%next(tablecount)
 
     pc = wb.PivotCaches().Add(SourceType=win32c.xlDatabase,
                                  SourceData=sourcedata)
@@ -54,11 +54,11 @@ def runexcel():
     and add pivot tables
     """
     excel = win32.gencache.EnsureDispatch('Excel.Application')
-    excel.Visible = True
+    # excel.Visible = True
     try:
         wb = excel.Workbooks.Open('ABCDCatering.xls')
     except:
-        print "Failed to open spreadsheet ABCDCatering.xls"
+        print ("Failed to open spreadsheet ABCDCatering.xls")
         sys.exit(1)
     ws = wb.Sheets('Sheet1')
     xldata = ws.UsedRange.Value
@@ -73,8 +73,10 @@ def runexcel():
         else:
             lasthdr = newdata[0][i]
 
-    logolookup = {'Applied Materials':'AMAT', 'Electronic Arts':'EA',
-                  'Hewlett-Packard':'HP', 'KLA-Tencor':'KLA'}
+    logolookup = {'Applied Materials' : 'AMAT',
+                  'Electronic Arts'   : 'EA',
+                  'Hewlett-Packard'   : 'HP',
+                  'KLA-Tencor'        : 'KLA'}
     if ("Company Name" in newdata[0]):
         cindx = newdata[0].index("Company Name")
         newdata[0][cindx+1:cindx+1] = ["Logo Name"]
@@ -85,12 +87,17 @@ def runexcel():
                 newname = newdata[rcnt][cindx].split()[0]
                 newdata[rcnt][cindx+1:cindx+1] = [newname]
                 logolookup[newdata[rcnt][cindx]] = newname
-            
-    foodlookup = {'Caesar Salad':'Salad', 'Cheese Pizza':'Pizza',
-                  'Cheeseburger':'Burger', 'Chocolate Sundae':'Dessert',
-                  'Churro':'Snack', 'Hamburger':'Burger', 'Hot Dog':'HotDog',
-                  'Pepperoni Pizza':'Pizza', 'Potato Chips':'Snack',
-                  'Soda':'Drink'}
+
+    foodlookup = {'Caesar Salad'     : 'Salad',
+                  'Cheese Pizza'     : 'Pizza',
+                  'Cheeseburger'     : 'Burger',
+                  'Chocolate Sundae' : 'Dessert',
+                  'Churro'           : 'Snack',
+                  'Hamburger'        : 'Burger',
+                  'Hot Dog'          : 'HotDog',
+                  'Pepperoni Pizza'  : 'Pizza',
+                  'Potato Chips'     : 'Snack',
+                  'Soda'             : 'Drink'}
     if ("Food Name" in newdata[0]):
         cindx = newdata[0].index("Food Name")
         newdata[0][cindx+1:cindx+1] = ["Food Category"]
@@ -99,7 +106,7 @@ def runexcel():
                 newdata[rcnt][cindx+1:cindx+1] = [foodlookup[newdata[rcnt][cindx]]]
             else:
                 newdata[rcnt][cindx+1:cindx+1] = ['UNDEFINED']
-            
+
     rowcnt = len(newdata)
     colcnt = len(newdata[0])
     wsnew = wb.Sheets.Add()
