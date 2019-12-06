@@ -19,7 +19,7 @@ for xlsxfile in xlxsfiles:
     try:
         ws = wb.Sheets('PAYROLL')
     except:
-        print ("No sheet named 'PAYROLL' in %s, skipping"%xlsxfile)
+        print ("No worksheet named 'PAYROLL' in %s, skipping"%xlsxfile)
         jeff.append(0.0)
         steve.append(0.0)
         wb.Close()
