@@ -3,6 +3,7 @@
 # Expand an existing 10x10 multiplication table and resize columns
 #
 import win32com.client as win32
+
 excel = win32.gencache.EnsureDispatch('Excel.Application')
 excel.Visible = True
 wb = excel.Workbooks.Add()

@@ -2,24 +2,24 @@
 # payrates.py
 # Report payrates for two employees across multiple spreadsheets
 #
-import win32com.client as win32
 import glob
 import os
+import win32com.client as win32
 
 xlxsfiles = sorted(glob.glob("*.xlsx"))
-print ("Reading %d files..."%len(xlxsfiles))
+print("Reading %d files..." % len(xlxsfiles))
 
 steve = []
 jeff = []
 cwd = os.getcwd()
 excel = win32.gencache.EnsureDispatch('Excel.Application')
-fpjeffsteve = open('jeffsteve.csv','w')
+fpjeffsteve = open('jeffsteve.csv', 'w')
 for xlsxfile in xlxsfiles:
     wb = excel.Workbooks.Open(cwd+"\\"+xlsxfile)
     try:
         ws = wb.Sheets('PAYROLL')
     except:
-        print ("No worksheet named 'PAYROLL' in %s, skipping"%xlsxfile)
+        print("No worksheet named 'PAYROLL' in %s, skipping" % xlsxfile)
         jeff.append(0.0)
         steve.append(0.0)
         wb.Close()
@@ -39,8 +39,8 @@ for xlsxfile in xlxsfiles:
         jeff.append(0)
     wb.Close()
 
-fpjeffsteve.write ("File,Jeff,Steve\n")
+fpjeffsteve.write("File,Jeff,Steve\n")
 for i in range(len(xlxsfiles)):
-    fpjeffsteve.write ("%s,%0.2f,%0.2f\n"%(xlxsfiles[i],jeff[i],steve[i]))
-print ("Wrote jeffsteve.csv")
+    fpjeffsteve.write("%s,%0.2f,%0.2f\n" % (xlxsfiles[i], jeff[i], steve[i]))
+print("Wrote jeffsteve.csv")
 excel.Application.Quit()

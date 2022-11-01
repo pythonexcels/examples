@@ -2,6 +2,7 @@
 # Set column widths
 #
 import win32com.client as win32
+
 excel = win32.gencache.EnsureDispatch('Excel.Application')
 wb = excel.Workbooks.Add()
 ws = wb.Worksheets("Sheet1")
